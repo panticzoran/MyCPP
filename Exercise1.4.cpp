@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-int main() {
+int exercise_1_4() {
 
 	string name,surname;
 
