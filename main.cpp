@@ -1,7 +1,11 @@
 #include <iostream>
 //#include <string>
 using namespace std;
+int primeDividerOfNumber(int);
+bool isPrimeNumber(int);
 
+// Calculates  the number that is a sum of the previous number in the array, and the greatest prime divider of the number
+// The array starts with number 2, and the next number is the sum of the previous number and the greatest prime divider of the number
 int main() {
 
 	int n, number;
@@ -15,11 +19,12 @@ int main() {
 		number = number + primeDividerOfNumber(number);
 	}
 
-	cout << "The number is: " + number;
+	cout << "The number is: " << number;
 
 return 0;
 }
 
+// Function returns the prime divider of a number, so the greatest prime divider of a number
 int primeDividerOfNumber(int nrToProcess) {
 	int pDON;
 	pDON=nrToProcess;
@@ -29,13 +34,12 @@ int primeDividerOfNumber(int nrToProcess) {
 				pDON=j;
 			}
 		}
-		
-		
 	}
 	
 	return pDON;
 }
 
+// Function checks if the number is prime
 bool isPrimeNumber(int nrToCheck) {
 	bool result;
 	result = true;
@@ -45,5 +49,5 @@ bool isPrimeNumber(int nrToCheck) {
 			k=nrToCheck;
 		}
 	}
-	retunr result;
+	return result;
 }
