@@ -5,7 +5,7 @@ using namespace std;
 
 int main() {
 	
-	int N, K, socksToBeKept, found;
+	int N, K, socksToBeKept, found, nrOfPairs, nrOfSingles;
 
 	cout << "Please enter the number of socks: ";
 	cin >> N;
@@ -21,29 +21,32 @@ int main() {
 	}
 
 	socksToBeKept = 0;
+	nrOfPairs=0;
+	nrOfSingles=0;
 
 	
 	for (int i=0; i<N; i++) {
-		found=0;
+		found=1;
 		if (socks[i] != 0) {
-			for (int j=1; j<N; j++) {
+			for (int j=i+1; j<N; j++) {
 				if (socks[i] == socks[j]) {
-					socksToBeKept++;
-					socksToBeKept++;
+					nrOfPairs++;
 					socks[i]=0;
 					socks[j]=0;
-					found=1;
+					found=0;
 					j=N;
 				}
 			}
-			socksToBeKept=socksToBeKept+found;
+			nrOfSingles=nrOfSingles+found;
 		}
-
 	}
-	
 
-
-
+	if (nrOfPairs > K) {
+		socksToBeKept=2*K+nrOfSingles+1;
+	}
+	else {
+		socksToBeKept=2*nrOfPairs+nrOfSingles;
+	}
 	
 	cout << "The number of socks that may be kept: " << socksToBeKept;
 
